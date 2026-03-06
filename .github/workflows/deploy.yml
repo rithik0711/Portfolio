@@ -20,14 +20,23 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
+          echo "Connected to EC2"
+
           cd ~/portfolio
-          git pull origin main
 
-          docker build -t portfolio-app .
+          echo "Pull latest code"
+          git fetch origin
+          git reset --hard origin/main
 
+          echo "Stopping old container"
           docker stop portfolio-container || true
           docker rm portfolio-container || true
 
+          echo "Building Docker image"
+          docker build --no-cache -t portfolio-app .
+
+          echo "Starting container"
           docker run -d -p 80:80 --name portfolio-container portfolio-app
 
+          docker ps
           docker image prune -f
