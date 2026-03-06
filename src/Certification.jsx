@@ -54,12 +54,24 @@ export const Certification = () => {
       color: "#3776AB"
     },
     {
-      id: 4,
+      id: 5,
       title: "Computer Networking",
       issuer: "Simplilearn",
       level: "Advanced",
       date: "2024",
       image: "./images/cn.png",
+      description: "Comprehensive Python programming certification covering advanced concepts, data structures, and best practices.",
+      skills: ["Python", "OOP", "Data Structures", "Algorithms"],
+      progress: 100,
+      color: "#3776AB"
+    },
+    {
+      id: 6,
+      title: "Introduction to Microsoft Excel",
+      issuer: "Coursera",
+      level: "Advanced",
+      date: "2024",
+      image: "./images/course.png",
       description: "Comprehensive Python programming certification covering advanced concepts, data structures, and best practices.",
       skills: ["Python", "OOP", "Data Structures", "Algorithms"],
       progress: 100,
