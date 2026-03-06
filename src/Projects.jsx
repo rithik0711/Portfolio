@@ -14,9 +14,9 @@ export const Projects = () => {
     {
       id: 1,
       title: "AI Exam Portal",
-      // description: "Intelligent examination platform powered by machine learning algorithms for automated assessment and personalized learning recommendations",
+      description: "An intelligent examination platform that enables faculty to schedule exams and generate questions using AI, while allowing students to attend exams through a secure interface with automated evaluation.",
       image: "./images/exam.png",
-      category: "Gen AI",
+      category: "GEN AI",
       tech: ["React", "Node.js", "Express", "SQL"],
       github: "https://github.com/rithik0711/recommendation-system",
       live: "#",
@@ -26,9 +26,9 @@ export const Projects = () => {
     {
       id: 2,
       title: "Skin Analyzer",
-      // description: "Advanced deep learning application for real-time skin analysis with accurate diagnostic capabilities and treatment recommendations",
+      description: "Advanced Machine Learning application for real-time skin analysis with accurate diagnostic capabilities and treatment recommendations.",
       image: "/images/skin-analyze.png",
-      category: "ML",
+      category: "MACHINE LEARNING",
       tech: ["React", "Python", "TensorFlow"],
       github: "https://github.com/rithik0711/recommendation-system",
       live: "#",
@@ -54,28 +54,42 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <article
               key={project.id}
-              className='bg-white/95 rounded-[24px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-400 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] border border-white/20 backdrop-blur-md opacity-100 translate-y-0 hover:-translate-y-[12px] hover:scale-[1.02] hover:shadow-[0_30px_60px_rgba(0,0,0,0.15)] group flex flex-col'
+              className='bg-[#1a1f3c]/40 rounded-[20px] p-[25px] md:p-[30px] shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-400 ease-out border border-white/5 backdrop-blur-xl hover:-translate-y-[8px] hover:bg-[#1a1f3c]/60 group flex flex-col relative overflow-hidden md:min-h-[380px]'
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className='relative h-[200px] lg:h-[220px] overflow-hidden shrink-0'>
-                <img src={project.image} alt={project.title} className='w-full h-full object-cover transition-transform duration-600 ease-in-out group-hover:scale-[1.08]' />
-                <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black/40 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100'></div>
-                <div className='absolute bottom-[15px] right-[15px] flex items-center gap-[8px] px-[12px] py-[6px] md:px-[16px] md:py-[8px] rounded-[20px] text-white font-[600] text-[0.75rem] md:text-[0.85rem] backdrop-blur-md border-[2px] border-white/30 shadow-[0_8px_20px_rgba(0,0,0,0.2)] z-[10]' style={{ backgroundColor: project.color }}>
-                  <span className='content-center text-[18px] flex'>{project.icon}</span>
-                  <span className='uppercase tracking-[0.5px]'>{project.category}</span>
+              {/* Background Glow */}
+              <div className="absolute top-[20px] right-[-20px] w-[150px] h-[150px] rounded-full blur-[80px] opacity-[0.15] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.25]" style={{ backgroundColor: project.color }}></div>
+              <div className="absolute bottom-[20px] left-[-20px] w-[150px] h-[150px] rounded-full blur-[80px] opacity-[0.1] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.2]" style={{ backgroundColor: project.color }}></div>
+
+              {/* Header: Icon and Category */}
+              <div className="flex justify-between items-start mb-[25px] relative z-10">
+                <div className="w-[50px] h-[50px] rounded-[14px] flex items-center justify-center bg-[#252a4a]/50 backdrop-blur-md border border-white/5 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <span style={{ color: project.color }} className='flex text-[24px]'>{project.icon}</span>
+                </div>
+                <div className="px-[14px] py-[6px] rounded-full border border-white/5 text-[0.65rem] md:text-[0.75rem] font-bold tracking-[1px] uppercase backdrop-blur-md" style={{ color: project.color, backgroundColor: `${project.color}15`, borderColor: `${project.color}30` }}>
+                  {project.category}
                 </div>
               </div>
 
-              <div className='p-[20px] md:p-[25px] lg:p-[30px] flex flex-col flex-grow'>
-                <header className='mb-[15px]'>
-                  <h3 className='text-[1.3rem] md:text-[1.4rem] lg:text-[1.6rem] font-[700] text-[#2d3748] m-0 leading-[1.3] relative pb-[10px] after:content-[""] after:absolute after:bottom-[-8px] after:left-0 after:w-[50px] after:h-[3px] after:bg-gradient-to-r after:from-[#667eea] after:to-[#764ba2] after:rounded-[2px]'>{project.title}</h3>
-                </header>
+              {/* Title & Description */}
+              <h3 className="text-[1.4rem] md:text-[1.8rem] font-[800] text-white mb-[12px] relative z-10 tracking-[0.5px]">
+                {project.title}
+              </h3>
+              <p className="text-[0.9rem] md:text-[1rem] text-white/50 leading-[1.6] mb-[25px] relative z-10 font-[400] pr-[10px]">{project.description}</p>
 
-                <div className='flex flex-wrap gap-[10px] mb-[25px] mt-[10px]'>
-                  {project.tech.map((tech, techIndex) => (
-                    <span key={techIndex} className='bg-gradient-to-br from-[#667eea1a] to-[#764ba21a] text-[#667eea] px-[14px] py-[6px] rounded-[16px] text-[0.8rem] font-[600] border border-[#667eea33] transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-[#667eea33] hover:to-[#764ba233] hover:-translate-y-[2px]'>{tech}</span>
-                  ))}
-                </div>
+              {/* Tech Stack */}
+              <div className="flex flex-wrap gap-[10px] mb-[30px] relative z-10">
+                {project.tech.map((tech, techIndex) => (
+                  <span key={techIndex} className="bg-[#12142b]/80 border border-white/5 text-white/80 px-[16px] py-[6px] rounded-full text-[0.75rem] font-[600] shadow-sm transition-colors hover:text-white hover:border-white/10">{tech}</span>
+                ))}
+              </div>
+
+              {/* Footer / Source Code Link */}
+              <div className="mt-auto pt-[20px] border-t border-white/10 relative z-10">
+                <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-[8px] text-white/60 hover:text-white transition-colors text-[0.85rem] font-medium w-fit">
+                  <GitHubIcon fontSize="small" />
+                  <span>Source Code</span>
+                </a>
               </div>
             </article>
           ))}
