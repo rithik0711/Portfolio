@@ -44,10 +44,22 @@ export const Certification = () => {
     {
       id: 4,
       title: "Python Programming",
-      issuer: "Python Institute",
+      issuer: "Cisco",
       level: "Advanced",
       date: "2024",
       image: "./images/python.png",
+      description: "Comprehensive Python programming certification covering advanced concepts, data structures, and best practices.",
+      skills: ["Python", "OOP", "Data Structures", "Algorithms"],
+      progress: 100,
+      color: "#3776AB"
+    },
+    {
+      id: 4,
+      title: "Computer Networking",
+      issuer: "Simplilearn",
+      level: "Advanced",
+      date: "2024",
+      image: "./images/cn.png",
       description: "Comprehensive Python programming certification covering advanced concepts, data structures, and best practices.",
       skills: ["Python", "OOP", "Data Structures", "Algorithms"],
       progress: 100,
