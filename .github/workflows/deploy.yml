@@ -1,0 +1,43 @@
+name: Deploy Portfolio to EC2
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual triggering from GitHub Actions UI
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      
+    - name: Deploy to Server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          # Navigate into the project directory (Assuming you cloned the repo as ~/portfolio)
+          cd ~/portfolio
+          
+          # Pull the latest code from GitHub
+          git pull origin main
+          
+          # Build the new Docker image
+          docker build -t portfolio-app .
+          
+          # Stop the old container if it exists without crashing the script
+          docker stop portfolio-container || true
+          
+          # Remove the old container if it exists
+          docker rm portfolio-container || true
+          
+          # Run the new container on port 80
+          docker run -d -p 80:80 --name portfolio-container portfolio-app
+          
+          # Clean up dangling images to save disk space
+          docker image prune -f
