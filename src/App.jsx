@@ -15,7 +15,8 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import StorageIcon from '@mui/icons-material/Storage';
 import CloudIcon from '@mui/icons-material/Cloud';
 import './App.css';
-import leetcodeLogo from '../public/images/Leetcode.png';
+// import leetcodeLogo from '/images/Leetcode.png';
+import leetcodelogo from "./assets/Leetcode.png";
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
