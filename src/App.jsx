@@ -10,13 +10,12 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import IconButton from "@mui/material/IconButton";
-import CodeIcon from '@mui/icons-material/Code';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import StorageIcon from '@mui/icons-material/Storage';
 import CloudIcon from '@mui/icons-material/Cloud';
+import CodeIcon from '@mui/icons-material/Code';
 import './App.css';
-// import leetcodeLogo from '/images/Leetcode.png';
-import leetcodelogo from "./assets/Leetcode.png";
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
@@ -181,8 +180,8 @@ function App() {
                   <button onClick={openLinkdin} className='w-[40px] h-[40px] rounded-full bg-white/5 hover:bg-[#0077b5] flex items-center justify-center transition-all duration-300 group'>
                     <LinkedInIcon sx={{ fontSize: 20, color: 'white' }} className="group-hover:scale-110" />
                   </button>
-                  <button onClick={openLeetcode} className='w-[40px] h-[40px] rounded-full bg-white/5 hover:bg-[#FFA116] flex items-center justify-center transition-all duration-300 group'>
-                    <img src={leetcodeLogo} alt="LeetCode" className="w-[20px] h-[20px] object-contain group-hover:scale-110" />
+                  <button onClick={openLeetcode} className='w-[40px] h-[40px] rounded-full bg-white/5 hover:bg-[#0077b5] flex items-center justify-center transition-all duration-300 group'>
+                    <CodeIcon sx={{ fontSize: 20, color: 'white' }} className="group-hover:scale-110" />
                   </button>
                 </div>
 
