@@ -49,7 +49,7 @@ function App() {
 
   // Set up intersection observer to detect which section is in view
   useEffect(() => {
-    const sections = ['home', 'about', 'skill', 'education', 'projects', 'certification', 'contact'];
+    const sections = ['home', 'about', 'skill', 'education', 'projects', 'technical', 'certification', 'contact'];
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

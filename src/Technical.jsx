@@ -29,7 +29,7 @@ export const Technical = () => {
             title: "Highly Available Pipeline on AWS",
             description: "Designed a fully automated CI/CD pipeline. Automates source control, testing, and deployment to EC2 instances in an Auto Scaling Group behind an ALB, ensuring zero-downtime.",
             category: "Enterprise Cloud",
-            tech: ["AWS CodeCommit", "AWS CodePipeline", "AWS CodeDeploy", "AWS EC2", "AWS S3", "AWS IAM", "AWS CloudWatch"],
+            tech: ["AWS CodeCommit", "AWS CodePipeline", "AWS CodeBuild", "AWS CodeDeploy", "AWS EC2", "AWS S3", "AWS IAM", "AWS CloudWatch"],
             icon: <CloudIcon />,
             color: "#f26d21"
         },
