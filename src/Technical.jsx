@@ -20,16 +20,16 @@ export const Technical = () => {
             title: "AWS Full-Stack Deployment",
             description: "Deployed a full-stack web application on AWS using EC2, VPC, and secure public-private subnet architecture with React, Node.js, and MySQL.",
             category: "Cloud Architecture",
-            tech: ["AWS EC2", "VPC", "React", "Node.js", "MySQL", "Linux"],
+            tech: ["AWS EC2", "AWS S3", "AWS RDS", "AWS VPC", "React", "Node.js", "MySQL", "Linux"],
             icon: <StorageIcon />,
             color: "#ff9900"
         },
         {
             id: 5,
-            title: "Highly Available HA Pipeline on AWS",
+            title: "Highly Available Pipeline on AWS",
             description: "Designed a fully automated CI/CD pipeline. Automates source control, testing, and deployment to EC2 instances in an Auto Scaling Group behind an ALB, ensuring zero-downtime.",
             category: "Enterprise Cloud",
-            tech: ["CodePipeline", "CodeDeploy", "EC2", "S3", "IAM", "CloudWatch"],
+            tech: ["AWS CodeCommit", "AWS CodePipeline", "AWS CodeDeploy", "AWS EC2", "AWS S3", "AWS IAM", "AWS CloudWatch"],
             icon: <CloudIcon />,
             color: "#f26d21"
         },
