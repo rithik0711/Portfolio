@@ -21,7 +21,7 @@ export const Contact = () => {
       from_name: name,
       from_email: email,
       message: message,
-      "to-email": "rithikeswaran2005@gmail.com",
+      "to-email": "rithikeswaran0711@gmail.com",
     };
 
     emailjs.send(serviceId, templateId, templateparams, publicKey)
@@ -72,7 +72,7 @@ export const Contact = () => {
               </div>
               <div>
                 <p className='text-[#8a8a8a] text-[0.9rem] font-[600] uppercase tracking-wider mb-[5px]'>Email Me At</p>
-                <h3 className='text-white text-[1.1rem] md:text-[1.2rem] font-[500] break-all group-hover:text-[#667eea] transition-colors'>rithikeswaran2005@gmail.com</h3>
+                <h3 className='text-white text-[1.1rem] md:text-[1.2rem] font-[500] break-all group-hover:text-[#667eea] transition-colors'>rithikeswaran0711@gmail.com</h3>
               </div>
             </div>
           </div>
@@ -100,7 +100,7 @@ export const Contact = () => {
               <h3 className='text-white text-[1.4rem] font-[700] mb-[5px]'>Download Resume</h3>
               <p className='text-[#8a8a8a] text-[0.9rem] mb-[15px]'>Get a copy of my CV</p>
               <div className='flex gap-[10px] w-full'>
-                <a href="/images/Rithikeswaran - resume.pdf" target="_blank" rel="noopener noreferrer" className='flex-1 py-[10px] rounded-[12px] bg-white/10 border border-white/20 text-white font-[600] text-[0.9rem] hover:bg-white/20 transition-colors flex justify-center items-center gap-[8px]'>
+                <a href="/images/Rithikeswaaran_IT239.pdf" target="_blank" rel="noopener noreferrer" className='flex-1 py-[10px] rounded-[12px] bg-white/10 border border-white/20 text-white font-[600] text-[0.9rem] hover:bg-white/20 transition-colors flex justify-center items-center gap-[8px]'>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-[18px] h-[18px]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -111,7 +111,7 @@ export const Contact = () => {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-[18px] h-[18px]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  Save
+                  Download
                 </a>
               </div>
             </div>

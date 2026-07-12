@@ -25,14 +25,26 @@ export const Projects = () => {
     },
     {
       id: 2,
-      title: "Skin Analyzer",
-      description: "Advanced Machine Learning application for real-time skin analysis with accurate diagnostic capabilities and treatment recommendations.",
-      image: "/images/skin-analyze.png",
+      title: "Faculty Workload Prediction System",
+      description: "A machine learning application designed to predict faculty workloads based on historical data and various factors.",
+      image: "/images/workload-prediction.png",
       category: "MACHINE LEARNING",
       tech: ["React", "Python", "TensorFlow"],
       github: "https://github.com/rithik0711/recommendation-system",
       live: "#",
       icon: <BiotechIcon />,
+      color: "#cd4ecb"
+    },
+    {
+      id: 3,
+      title: "Self-Hosted AI Chat Application",
+      description: "Built a self-hosted AI chat platform for secure, real-time conversations without external cloud dependencies.",
+      image: "/images/skin-analyze.png",
+      category: "Gen AI",
+      tech: ["React.js", "Flask", "Ollama", "REST APIs"],
+      github: "#",
+      live: "#",
+      icon: <SmartToyIcon />,
       color: "#4ECDC4"
     }
   ];

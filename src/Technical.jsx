@@ -7,7 +7,7 @@ import StorageIcon from '@mui/icons-material/Storage';
 export const Technical = () => {
     const implementations = [
         {
-            id: 3,
+            id: 1,
             title: "Automated CI/CD Pipeline for Node.js",
             description: "Built an end-to-end CI/CD pipeline to automate build, containerization, and deployment of a Node.js application using Jenkins and Docker on AWS EC2.",
             category: "Cloud/DevOps",
@@ -16,7 +16,7 @@ export const Technical = () => {
             color: "#45d19b"
         },
         {
-            id: 4,
+            id: 2,
             title: "AWS Full-Stack Deployment",
             description: "Deployed a full-stack web application on AWS using EC2, VPC, and secure public-private subnet architecture with React, Node.js, and MySQL.",
             category: "Cloud Architecture",
@@ -25,7 +25,7 @@ export const Technical = () => {
             color: "#ff9900"
         },
         {
-            id: 5,
+            id: 3,
             title: "Highly Available Pipeline on AWS",
             description: "Designed a fully automated CI/CD pipeline. Automates source control, testing, and deployment to EC2 instances in an Auto Scaling Group behind an ALB, ensuring zero-downtime.",
             category: "Enterprise Cloud",
@@ -34,7 +34,7 @@ export const Technical = () => {
             color: "#f26d21"
         },
         {
-            id: 6,
+            id: 4,
             title: "n8n AI YouTube Video Summarizer",
             description: "Created an autonomous AI agent workflow in n8n that automatically ingests YouTube videos and generates detailed text descriptions and summaries using LLMs.",
             category: "AI Automation",

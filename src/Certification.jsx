@@ -7,76 +7,113 @@ export const Certification = () => {
   const certifications = [
     {
       id: 1,
+      title: "CCNA: Introduction to Networking",
+      issuer: "Cisco",
+      level: "Advanced",
+      date: "2024",
+      image: "/images/ccna.png",
+      description: "Comprehensive Python programming certification covering advanced concepts, data structures, and best practices.",
+      skills: ["Computer Networking"],
+      progress: 100,
+      color: "#3776AB"
+    },
+    {
+      id: 2,
+      title: "OCI Foundations Associate",
+      issuer: "Oracle Cloud",
+      level: "Basic",
+      date: "2024",
+      image: "/images/oracle_cloud.png",
+      description: "",
+      skills: ["Cloud Computing"],
+      progress: 100,
+      color: "#3776AB"
+    },
+    {
+      id: 3,
       title: "Machine Learning",
       issuer: "NPTEL",
       level: "Intermediate",
       date: "2023",
-      image: "./images/nptel.png",
+      image: "/images/nptel.png",
       description: "NPTEL certification in Machine Learning fundamentals, algorithms, and practical applications.",
-      skills: ["ML", "Statistics", "Python", "Scikit-learn"],
+      skills: ["ML", "Python"],
       progress: 95,
       color: "#FF6B35"
     },
     {
-      id: 2,
+      id: 4,
       title: "Ethical Hacking",
       issuer: "NPTEL",
       level: "Intermediate",
       date: "2023",
-      image: "./images/Ethical Hacking.png",
+      image: "/images/Ethical Hacking.png",
       description: "Ethical Hacking certification covering security attacks, vulnerabilities, and cyber forensics.",
-      skills: ["Cybersecurity", "Networking", "Linux", "Recon"],
+      skills: ["Networking"],
       progress: 92,
       color: "#22b455"
     },
     {
-      id: 3,
+      id: 5,
       title: "Introduction to AI",
       issuer: "Google / Coursera",
       level: "Beginner",
       date: "2024",
-      image: "./images/Introduction to AI.png",
+      image: "/images/Introduction to AI.png",
       description: "Google & Coursera certified course introducing AI fundamentals, LLMs, and real-world use cases.",
-      skills: ["AI Basics", "LLMs", "Prompting", "Neural Networks"],
+      skills: ["AI Basics", "LLMs", "Prompting"],
       progress: 90,
       color: "#4285F4"
     },
     {
-      id: 4,
+      id: 6,
       title: "Python Programming",
       issuer: "Cisco",
       level: "Advanced",
       date: "2024",
-      image: "./images/python.png",
+      image: "/images/python.png",
       description: "Comprehensive Python programming certification covering advanced concepts, data structures, and best practices.",
-      skills: ["Python", "OOP", "Data Structures", "Algorithms"],
+      skills: ["Python"],
       progress: 100,
       color: "#3776AB"
     },
     {
-      id: 5,
+      id: 7,
       title: "Computer Networking",
       issuer: "Simplilearn",
       level: "Advanced",
       date: "2024",
-      image: "./images/cn.png",
+      image: "/images/cn.png",
       description: "Comprehensive Python programming certification covering advanced concepts, data structures, and best practices.",
-      skills: ["Python", "OOP", "Data Structures", "Algorithms"],
+      skills: ["Python"],
       progress: 100,
       color: "#3776AB"
     },
     {
-      id: 6,
+      id: 8,
+      title: "Programming in Java",
+      issuer: "NPTEL",
+      level: "Intermediate",
+      date: "2023",
+      image: "/images/p_java.png",
+      description: "Ethical Hacking certification covering security attacks, vulnerabilities, and cyber forensics.",
+      skills: ["Java", "OOP", "Data Structures", "Algorithms"],
+      progress: 85,
+      color: "#22b455"
+    },
+    {
+      id: 9,
       title: "Introduction to Microsoft Excel",
       issuer: "Coursera",
-      level: "Advanced",
+      level: "Basic",
       date: "2024",
-      image: "./images/course.png",
-      description: "Comprehensive Python programming certification covering advanced concepts, data structures, and best practices.",
-      skills: ["Python", "OOP", "Data Structures", "Algorithms"],
+      image: "/images/course.png",
+      description: "",
+      skills: ["Formulas"],
       progress: 100,
       color: "#3776AB"
     }
+
   ];
 
   // Auto-scroll logic
@@ -103,27 +140,38 @@ export const Certification = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + certifications.length) % certifications.length);
   };
 
-  // 3D Carousel Style Generator
+  // 3D Carousel Style Generator (show center + 2 left + 2 right)
   const getCardStyle = (index) => {
-    const diff = (index - currentIndex + certifications.length) % certifications.length;
+  const n = certifications.length;
 
-    if (diff === 0) {
-      // Current center card
-      return 'translate-x-0 scale-100 opacity-100 z-30 blur-none';
-    } else if (diff === 1) {
-      // Next card (Right side)
-      return 'translate-x-[60%] md:translate-x-[110%] scale-75 md:scale-80 opacity-50 z-20 blur-[2px] cursor-pointer hover:opacity-80 hover:blur-none';
-    } else if (diff === certifications.length - 1) {
-      // Previous card (Left side)
-      return '-translate-x-[60%] md:-translate-x-[110%] scale-75 md:scale-80 opacity-50 z-20 blur-[2px] cursor-pointer hover:opacity-80 hover:blur-none';
-    } else {
-      // Hidden cards (behind center)
-      return 'translate-x-0 scale-50 opacity-0 z-10 blur-[5px] pointer-events-none';
-    }
-  };
+  let diff = index - currentIndex;
+
+  if (diff > n / 2) diff -= n;
+  if (diff < -n / 2) diff += n;
+
+  switch (diff) {
+    case 0:
+      return "translate-x-0 scale-110 opacity-100 z-30";
+
+    case 1:
+      return "translate-x-[85%] scale-90 opacity-80 z-20";
+
+    case 2:
+      return "translate-x-[170%] scale-75 opacity-50 z-10";
+
+    case -1:
+      return "-translate-x-[85%] scale-90 opacity-80 z-20";
+
+    case -2:
+      return "-translate-x-[170%] scale-75 opacity-50 z-10";
+
+    default:
+      return "translate-x-0 scale-50 opacity-0 pointer-events-none";
+  }
+};
 
   return (
-    <div className='bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] min-h-[80vh] py-[60px] pt-[90px] md:pt-[80px] md:py-[80px] px-[20px] text-white overflow-hidden relative' id='certification'>
+    <div className='bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] min-h-[80vh] py-[60px] pt-[90px] md:pt-[80px] md:py-[80px] px-[20px] text-white overflow-visible relative' id='certification'>
 
       <div className='text-center mb-[40px] md:mb-[60px] relative z-40'>
         <h2 className='text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] mb-[15px] bg-gradient-to-br from-[#667eea] to-[#764ba2] bg-clip-text text-transparent font-[700]'>Certifications</h2>
@@ -140,13 +188,13 @@ export const Certification = () => {
           <div
             key={cert.id}
             onClick={() => setCurrentIndex(index)}
-            className={`absolute w-[280px] md:w-[400px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] 
+            className={`absolute w-[300px] md:w-[420px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] 
             rounded-[25px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-white/20 bg-white/5 backdrop-blur-md ${getCardStyle(index)}`}
           >
             <div className='w-full shrink-0 flex flex-col items-center p-[20px] md:p-[35px] group'>
 
-              <div className='w-full h-[160px] md:h-[220px] rounded-[15px] overflow-hidden border-[2px] border-white/10 group-hover:border-[#667eea] transition-all duration-500 mb-[25px] bg-black/20 shadow-inner'>
-                <img src={cert.image} alt={cert.title} className='w-full h-full object-cover transition-transform duration-700' />
+              <div className='w-full h-[180px] md:h-[320px] rounded-[15px] overflow-hidden border-[2px] border-white/10 group-hover:border-[#667eea] transition-all duration-500 mb-[25px] bg-black/10 shadow-inner flex items-center justify-center p-2'>
+                <img src={cert.image} alt={cert.title} className='max-w-[90%] max-h-full object-contain transition-transform duration-700' />
               </div>
 
               <span className='px-[15px] py-[5px] rounded-full bg-[#667eea]/20 text-[#8296ec] border border-[#667eea]/30 text-[0.8rem] font-[700] uppercase tracking-wider mb-[15px]'>

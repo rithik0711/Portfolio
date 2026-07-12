@@ -78,9 +78,9 @@ const Education = () => {
 
                 <div className="mb-[25px]">
                   <div className="w-full h-[8px] bg-[#e0e0e0] rounded-[4px] overflow-hidden mb-[8px]">
-                    <div className="h-full bg-gradient-to-r from-[#667eea] to-[#764ba2] rounded-[4px] transition-all duration-1000 ease-out w-[60%]"></div>
+                    <div className="h-full bg-gradient-to-r from-[#667eea] to-[#764ba2] rounded-[4px] transition-all duration-1000 ease-out w-[75%]"></div>
                   </div>
-                  <span className="text-[#666] text-[0.9rem] font-[500]">3rd Year</span>
+                  <span className="text-[#666] text-[0.9rem] font-[500]">4th Year</span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[12px] mb-[25px]">

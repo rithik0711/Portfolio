@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Skills from './Skills';
 import Certification from './Certification'
-import About from './About'
+// import About from './About'
 import Education from './Education'
 import Contact from './Contact'
 import Projects from './Projects'
@@ -49,7 +49,7 @@ function App() {
 
   // Set up intersection observer to detect which section is in view
   useEffect(() => {
-    const sections = ['home', 'about', 'skill', 'education', 'projects', 'technical', 'certification', 'contact'];
+    const sections = ['home', 'skill', 'education', 'projects', 'technical', 'certification', 'contact'];
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -122,7 +122,7 @@ function App() {
 
             <div className={`gap-[15px] md:gap-[35px] flex-col md:flex-row items-center justify-center md:justify-end absolute md:static top-[70px] left-0 right-0 bg-[#0f0c29f2] md:bg-transparent pb-[20px] md:pb-0 border-b border-white/10 md:border-none ${menuOpen ? 'flex' : 'hidden md:flex'}`} onClick={() => setMenuOpen(false)}>
               <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className={`no-underline text-white text-[16px] md:text-[18px] w-full text-center md:w-auto font-[500] transition-all duration-300 relative px-[10px] md:px-[16px] py-[10px] md:py-[8px] rounded-[20px] hover:bg-white/10 hover:-translate-y-[2px] ${activeSection === 'home' ? 'text-[#667eea] after:content-[""] after:absolute after:bottom-0 md:after:-bottom-[2px] after:left-1/2 after:-translate-x-1/2 after:w-[30px] after:h-[3px] after:bg-gradient-to-r after:from-[#667eea] after:to-[#764ba2] after:rounded-[3px]' : ''}`}>Home</a>
-              <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className={`no-underline text-white text-[16px] md:text-[18px] w-full text-center md:w-auto font-[500] transition-all duration-300 relative px-[10px] md:px-[16px] py-[10px] md:py-[8px] rounded-[20px] hover:bg-white/10 hover:-translate-y-[2px] ${activeSection === 'about' ? 'text-[#667eea] after:content-[""] after:absolute after:bottom-0 md:after:-bottom-[2px] after:left-1/2 after:-translate-x-1/2 after:w-[30px] after:h-[3px] after:bg-gradient-to-r after:from-[#667eea] after:to-[#764ba2] after:rounded-[3px]' : ''}`}>About</a>
+              {/* <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className={`no-underline text-white text-[16px] md:text-[18px] w-full text-center md:w-auto font-[500] transition-all duration-300 relative px-[10px] md:px-[16px] py-[10px] md:py-[8px] rounded-[20px] hover:bg-white/10 hover:-translate-y-[2px] ${activeSection === 'about' ? 'text-[#667eea] after:content-[""] after:absolute after:bottom-0 md:after:-bottom-[2px] after:left-1/2 after:-translate-x-1/2 after:w-[30px] after:h-[3px] after:bg-gradient-to-r after:from-[#667eea] after:to-[#764ba2] after:rounded-[3px]' : ''}`}>About</a> */}
               <a href="#skill" onClick={(e) => handleNavClick(e, 'skill')} className={`no-underline text-white text-[16px] md:text-[18px] w-full text-center md:w-auto font-[500] transition-all duration-300 relative px-[10px] md:px-[16px] py-[10px] md:py-[8px] rounded-[20px] hover:bg-white/10 hover:-translate-y-[2px] ${activeSection === 'skill' ? 'text-[#667eea] after:content-[""] after:absolute after:bottom-0 md:after:-bottom-[2px] after:left-1/2 after:-translate-x-1/2 after:w-[30px] after:h-[3px] after:bg-gradient-to-r after:from-[#667eea] after:to-[#764ba2] after:rounded-[3px]' : ''}`}>Skills</a>
               <a href="#education" onClick={(e) => handleNavClick(e, 'education')} className={`no-underline text-white text-[16px] md:text-[18px] w-full text-center md:w-auto font-[500] transition-all duration-300 relative px-[10px] md:px-[16px] py-[10px] md:py-[8px] rounded-[20px] hover:bg-white/10 hover:-translate-y-[2px] ${activeSection === 'education' ? 'text-[#667eea] after:content-[""] after:absolute after:bottom-0 md:after:-bottom-[2px] after:left-1/2 after:-translate-x-1/2 after:w-[30px] after:h-[3px] after:bg-gradient-to-r after:from-[#667eea] after:to-[#764ba2] after:rounded-[3px]' : ''}`}>Education</a>
               <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className={`no-underline text-white text-[16px] md:text-[18px] w-full text-center md:w-auto font-[500] transition-all duration-300 relative px-[10px] md:px-[16px] py-[10px] md:py-[8px] rounded-[20px] hover:bg-white/10 hover:-translate-y-[2px] ${activeSection === 'projects' ? 'text-[#667eea] after:content-[""] after:absolute after:bottom-0 md:after:-bottom-[2px] after:left-1/2 after:-translate-x-1/2 after:w-[30px] after:h-[3px] after:bg-gradient-to-r after:from-[#667eea] after:to-[#764ba2] after:rounded-[3px]' : ''}`}>Projects</a>
@@ -142,9 +142,9 @@ function App() {
 
             {/* Left Content Column */}
             <div className='flex-1 max-w-[650px] text-center xl:text-left mt-[20px] md:mt-0'>
-              <div className={`inline-block mb-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium tracking-wide uppercase backdrop-blur-md transition-all duration-800 ${isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20px]'}`}>
+              {/* <div className={`inline-block mb-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium tracking-wide uppercase backdrop-blur-md transition-all duration-800 ${isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20px]'}`}>
                 🚀 Welcome to my portfolio
-              </div>
+              </div> */}
 
               <h1 className='text-[2.2rem] sm:text-[3.5rem] lg:text-[4.5rem] m-0 leading-[1.1] font-extrabold tracking-tight'>
                 Hi, I'm <br className="hidden xl:block" />
@@ -222,9 +222,9 @@ function App() {
           </div>
         </div>
 
-        <section id='about'>
+        {/* <section id='about'>
           <About />
-        </section>
+        </section> */}
 
         <section id='skill'>
           <Skills />
