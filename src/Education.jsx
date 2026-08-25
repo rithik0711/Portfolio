@@ -7,7 +7,7 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
-const Education = () => {
+export const Education = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -33,61 +33,74 @@ const Education = () => {
   }, []);
 
   const collegeSkills = [
-    { id: 1, name: 'Data Structures', icon: <CodeIcon /> },
-    { id: 2, name: 'Web Development', icon: <AutoAwesomeIcon /> },
-    { id: 3, name: 'Cloud Computing', icon: <PsychologyIcon /> },
-    { id: 4, name: 'Devops', icon: <ComputerIcon /> }
+    { id: 1, name: 'Data Structures & Algorithms', icon: <CodeIcon fontSize="small" /> },
+    { id: 2, name: 'Cloud Computing & AWS', icon: <PsychologyIcon fontSize="small" /> },
+    { id: 3, name: 'DevOps & Containerization', icon: <ComputerIcon fontSize="small" /> },
+    { id: 4, name: 'Full-Stack Web Development', icon: <AutoAwesomeIcon fontSize="small" /> }
   ];
 
   const schoolAchievements = [
-    { id: 1, text: 'Excellence in Mathematics' },
-    { id: 2, text: 'Intersted in Computer Science' }
+    { id: 1, text: 'Excellence in Mathematics & Analytical Problem Solving' },
+    { id: 2, text: 'Top Performer in Computer Science Fundamentals' }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] relative overflow-hidden py-[60px] pt-[90px] md:pt-[100px] md:py-[100px] px-[15px] md:px-[20px]" id="education" ref={sectionRef}>
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,<svg_xmlns=%22http://www.w3.org/2000/svg%22_viewBox=%220_0_1440_320%22><path_fill=%22%23ffffff10%22_d=%22M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,112C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z%22></path></svg>')] bg-no-repeat bg-bottom bg-cover opacity-30 pointer-events-none"></div>
-
+    <section className="min-h-screen py-[70px] pt-[100px] px-[15px] md:px-[20px] relative overflow-hidden" id="education" ref={sectionRef}>
       <div className="max-w-[1200px] mx-auto relative z-10">
-        <div className="text-center mb-[80px]">
-          <h2 className={`text-[2rem] md:text-[4rem] font-[800] mb-[20px] transition-all duration-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}`}>
-            <span className="block text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.2)]">My Academic</span>
-            <span className="block bg-gradient-to-tr from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent mt-[-10px]">Journey</span>
+        
+        <div className="text-center mb-[60px]">
+          <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase font-mono tracking-widest text-amber-300 mb-3'>
+            🎓 Academic Milestone
+          </div>
+          <h2 className="text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] font-[800] mb-[15px] tracking-[-1px] leading-[1.1] text-white">
+            Academic <span className="bg-gradient-to-tr from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">Journey</span>
           </h2>
-          <p className={`text-[1.2rem] text-white/90 max-w-[600px] mx-auto transition-all duration-800 ease-out delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20px]'}`}>
-            Transforming knowledge into innovation through continuous learning
+          <p className="text-[1rem] md:text-[1.15rem] text-white/70 max-w-[600px] mx-auto leading-[1.6]">
+            Continuous pursuit of technical mastery and rigorous problem-solving fundamentals
           </p>
         </div>
 
         <div className="relative max-w-[1000px] mx-auto">
-          <div className="absolute left-[30px] md:left-1/2 top-0 bottom-0 w-[4px] bg-gradient-to-b from-white/30 via-white/80 to-white/30 md:-translate-x-1/2 rounded-[2px]"></div>
+          {/* Central Line */}
+          <div className="absolute left-[30px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyan-400 via-purple-500 to-amber-400 md:-translate-x-1/2 rounded-full opacity-40"></div>
 
-          {/* College Education */}
-          <div className={`relative mb-[80px] md:w-full transition-all duration-800 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-[50px]'}`}>
-            <div className="absolute left-[30px] md:left-1/2 top-[30px] w-[60px] h-[60px] bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-full flex items-center justify-center -translate-x-1/2 shadow-[0_8px_24px_rgba(0,0,0,0.2)] z-10 transition-transform duration-300 hover:scale-110 hover:shadow-[0_12px_32px_rgba(0,0,0,0.3)]">
-              <AccountBalanceIcon sx={{ color: 'white', fontSize: 28 }} />
+          {/* College Card */}
+          <div className={`relative mb-[60px] md:w-full transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-[30px]'}`}>
+            <div className="absolute left-[30px] md:left-1/2 top-[24px] w-[50px] h-[50px] bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-2xl flex items-center justify-center -translate-x-1/2 shadow-[0_0_25px_rgba(102,126,234,0.6)] z-10 border border-white/20">
+              <AccountBalanceIcon sx={{ color: 'white', fontSize: 24 }} />
             </div>
-            <div className="w-[calc(100%-80px)] ml-[60px] md:w-[calc(50%-40px)] md:ml-[50%] md:pl-[40px] p-[20px]">
-              <div className="bg-white/95 rounded-[20px] p-[20px] md:p-[30px] shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-300 relative overflow-hidden border-t-[5px] border-t-transparent hover:-translate-y-[5px] hover:shadow-[0_25px_50px_rgba(0,0,0,0.15)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-gradient-to-r before:from-[#667eea] before:to-[#764ba2]">
-                <div className="flex justify-between items-center mb-[20px]">
-                  <div className="bg-gradient-to-br from-[#667eea] to-[#764ba2] text-white px-[16px] py-[8px] rounded-[20px] font-[600] text-[0.9rem]">2023 - 2027</div>
-                  <div className="bg-[#4CAF50] text-white px-[12px] py-[6px] rounded-[15px] text-[0.8rem] font-[500]">Current</div>
+            <div className="w-[calc(100%-80px)] ml-[60px] md:w-[calc(50%-40px)] md:ml-[50%] md:pl-[40px]">
+              <div className="bg-white/[0.04] border border-white/10 rounded-[24px] p-[25px] md:p-[30px] shadow-2xl backdrop-blur-xl hover:border-cyan-400/40 hover:bg-white/[0.07] transition-all duration-300">
+                <div className="flex justify-between items-center mb-[15px]">
+                  <span className="bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 px-3 py-1 rounded-full font-mono font-bold text-xs">
+                    2023 - 2027
+                  </span>
+                  <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold">
+                    ● Current (4th Year)
+                  </span>
                 </div>
-                <h3 className="text-[1.4rem] md:text-[1.8rem] text-[#333] mb-[10px] font-[700]">Bannari Amman Institute of Technology</h3>
-                <p className="text-[#666] text-[1.1rem] mb-[25px] font-[500]">B.Tech Information Technology</p>
+                <h3 className="text-[1.3rem] md:text-[1.5rem] text-white font-bold mb-1">
+                  Bannari Amman Institute of Technology
+                </h3>
+                <p className="text-cyan-300 text-sm font-medium mb-4">
+                  B.Tech in Information Technology
+                </p>
 
-                <div className="mb-[25px]">
-                  <div className="w-full h-[8px] bg-[#e0e0e0] rounded-[4px] overflow-hidden mb-[8px]">
-                    <div className="h-full bg-gradient-to-r from-[#667eea] to-[#764ba2] rounded-[4px] transition-all duration-1000 ease-out w-[75%]"></div>
+                <div className="mb-5">
+                  <div className="flex justify-between text-xs font-mono text-white/60 mb-1">
+                    <span>Program Progress</span>
+                    <span className="text-white font-bold">75% Complete</span>
                   </div>
-                  <span className="text-[#666] text-[0.9rem] font-[500]">4th Year</span>
+                  <div className="w-full h-2 bg-black/40 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full w-[75%]"></div>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[12px] mb-[25px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {collegeSkills.map((skill) => (
-                    <div key={skill.id} className="flex items-center gap-[8px] px-[15px] py-[10px] bg-gradient-to-br from-[#667eea1a] to-[#764ba21a] rounded-[12px] border border-[#667eea33] transition-all duration-300 hover:-translate-y-[2px] hover:bg-gradient-to-br hover:from-[#667eea33] hover:to-[#764ba233]">
-                      <span className="text-[#667eea] text-[18px] flex">{skill.icon}</span>
-                      <span className="text-[#333] font-[500] text-[0.9rem]">{skill.name}</span>
+                    <div key={skill.id} className="flex items-center gap-2 p-2 rounded-xl bg-black/30 border border-white/5 text-xs text-white/80">
+                      <span className="text-cyan-400">{skill.icon}</span>
+                      <span>{skill.name}</span>
                     </div>
                   ))}
                 </div>
@@ -95,36 +108,44 @@ const Education = () => {
             </div>
           </div>
 
-          {/* School Education */}
-          <div className={`relative mb-[80px] md:w-full transition-all duration-800 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[50px]'}`}>
-            <div className="absolute left-[30px] md:left-1/2 top-[30px] w-[60px] h-[60px] bg-white rounded-full flex items-center justify-center -translate-x-1/2 shadow-[0_8px_24px_rgba(0,0,0,0.2)] z-10 transition-transform duration-300 hover:scale-110 hover:shadow-[0_12px_32px_rgba(0,0,0,0.3)]">
-              <SchoolIcon sx={{ color: '#764ba2', fontSize: 28 }} />
+          {/* School Card */}
+          <div className={`relative mb-[40px] md:w-full transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[30px]'}`}>
+            <div className="absolute left-[30px] md:left-1/2 top-[24px] w-[50px] h-[50px] bg-gradient-to-br from-[#ff0844] to-[#ffb199] rounded-2xl flex items-center justify-center -translate-x-1/2 shadow-[0_0_25px_rgba(255,8,68,0.6)] z-10 border border-white/20">
+              <SchoolIcon sx={{ color: 'white', fontSize: 24 }} />
             </div>
-            <div className="w-[calc(100%-80px)] ml-[60px] md:w-[calc(50%-40px)] md:mr-[50%] md:pr-[40px] md:ml-[0px] p-[20px]">
-              <div className="bg-white/95 rounded-[20px] p-[20px] md:p-[30px] shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-300 relative overflow-hidden border-t-[5px] border-t-transparent hover:-translate-y-[5px] hover:shadow-[0_25px_50px_rgba(0,0,0,0.15)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-gradient-to-r before:from-[#667eea] before:to-[#764ba2]">
-                <div className="flex justify-between items-center mb-[20px]">
-                  <div className="bg-gradient-to-br from-[#667eea] to-[#764ba2] text-white px-[16px] py-[8px] rounded-[20px] font-[600] text-[0.9rem]">2022 - 2023</div>
-                  <div className="bg-[#2196F3] text-white px-[12px] py-[6px] rounded-[15px] text-[0.8rem] font-[500]">Completed</div>
+            <div className="w-[calc(100%-80px)] ml-[60px] md:w-[calc(50%-40px)] md:mr-[50%] md:pr-[40px] md:ml-0">
+              <div className="bg-white/[0.04] border border-white/10 rounded-[24px] p-[25px] md:p-[30px] shadow-2xl backdrop-blur-xl hover:border-pink-400/40 hover:bg-white/[0.07] transition-all duration-300">
+                <div className="flex justify-between items-center mb-[15px]">
+                  <span className="bg-purple-500/20 text-purple-300 border border-purple-400/30 px-3 py-1 rounded-full font-mono font-bold text-xs">
+                    2022 - 2023
+                  </span>
+                  <span className="bg-blue-500/20 text-blue-300 border border-blue-400/30 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold">
+                    ✓ Completed
+                  </span>
                 </div>
-                <h3 className="text-[1.4rem] md:text-[1.8rem] text-[#333] mb-[10px] font-[700]">Isha Vidhya Matric Higher Secondary School</h3>
-                <p className="text-[#666] text-[1.1rem] mb-[25px] font-[500]">Higher Secondary Education</p>
+                <h3 className="text-[1.3rem] md:text-[1.5rem] text-white font-bold mb-1">
+                  Isha Vidhya Matric Higher Secondary School
+                </h3>
+                <p className="text-purple-300 text-sm font-medium mb-4">
+                  Higher Secondary Education
+                </p>
 
-                <div className="mb-[25px]">
+                <div className="space-y-2">
                   {schoolAchievements.map((achievement) => (
-                    <div key={achievement.id} className="flex items-center gap-[12px] p-[12px] mb-[10px] bg-[#ffd7001a] rounded-[10px] border-l-[3px] border-l-[#FFD700] transition-all duration-300 hover:bg-[#ffd70033] hover:translate-x-[5px]">
-                      <div className="text-[#FFD700] text-[20px] flex">
-                        <EmojiEventsIcon />
-                      </div>
-                      <span className="text-[#333] font-[500] text-[0.95rem]">{achievement.text}</span>
+                    <div key={achievement.id} className="flex items-center gap-2.5 p-2.5 bg-amber-500/10 border border-amber-500/20 rounded-xl text-xs text-white/90">
+                      <EmojiEventsIcon sx={{ color: '#ffd700', fontSize: 18 }} />
+                      <span>{achievement.text}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
-    </div>
+    </section>
   );
 };
 

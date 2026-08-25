@@ -1,95 +1,141 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useTheme } from './context/ThemeContext';
+import { sound } from './utils/soundFX';
+import SearchIcon from '@mui/icons-material/Search';
 
-const Skills = () => {
+export const Skills = () => {
+  const { unlockAchievement } = useTheme();
+  const [activeCategory, setActiveCategory] = useState('ALL');
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const skillsData = [
+    // Languages
+    { name: "Java", category: "LANGUAGES", icon: "./images/java.png", level: 90, desc: "OOP, Multithreading, Algorithms" },
+    { name: "Python", category: "LANGUAGES", icon: "./images/py.jpeg", level: 88, desc: "Machine Learning, Flask, Scripting" },
+    { name: "MySQL", category: "LANGUAGES", icon: "./images/sql.jpg", level: 85, desc: "Relational Design, Indexing, Joins" },
+    { name: "C", category: "LANGUAGES", icon: "./images/c-programming.png", level: 80, desc: "Pointers, Data Structures, Memory" },
+    
+    // Frameworks & Web
+    { name: "React", category: "FRAMEWORKS", icon: "./images/react.png", level: 92, desc: "Hooks, Context API, SPA Design" },
+    { name: "Node.js", category: "FRAMEWORKS", icon: "./images/node.png", level: 86, desc: "Async APIs, Microservices, REST" },
+    { name: "Express", category: "FRAMEWORKS", icon: "./images/express.jpg", level: 85, desc: "Routing, Middlewares, Auth" },
+    { name: "MongoDB", category: "FRAMEWORKS", icon: "./images/mongodb.png", level: 82, desc: "NoSQL, Aggregation, Schemas" },
+    { name: "Flask", category: "FRAMEWORKS", icon: "./images/flask.svg", level: 80, desc: "Python APIs, Ollama Integration" },
+
+    // Cloud & DevOps
+    { name: "AWS", category: "CLOUD & DEVOPS", icon: "./images/aws.jpg", level: 88, desc: "EC2, S3, RDS, VPC, ALB, IAM" },
+    { name: "Docker", category: "CLOUD & DEVOPS", icon: "./images/docker.png", level: 85, desc: "Multi-stage builds, Compose" },
+    { name: "Jenkins", category: "CLOUD & DEVOPS", icon: "./images/jenkins.jpg", level: 82, desc: "CI/CD Pipelines, EC2 Automated Build" },
+    { name: "GitHub Actions", category: "CLOUD & DEVOPS", icon: "./images/githubactions.png", level: 84, desc: "Workflow CI automation, CD" },
+    { name: "Git", category: "CLOUD & DEVOPS", icon: "./images/git.png", level: 90, desc: "Branching, PRs, GitFlow" }
+  ];
+
+  const categories = ['ALL', 'LANGUAGES', 'FRAMEWORKS', 'CLOUD & DEVOPS'];
+
+  const filteredSkills = skillsData.filter((skill) => {
+    const matchesCategory = activeCategory === 'ALL' || skill.category === activeCategory;
+    const matchesSearch = skill.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          skill.desc.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const handleCategoryChange = (cat) => {
+    setActiveCategory(cat);
+    sound.playClick();
+    unlockAchievement('skills_inspected');
+  };
+
   return (
-    <div className='m-0 px-[10px] py-[20px] pt-[90px] md:px-[20px] md:py-[40px] md:pt-[80px] bg-gradient-to-br from-[#110a4a] via-[#302b63] to-[#272763] min-h-screen' id='skill'>
-      <h2 className='text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] mb-[10px] bg-gradient-to-br from-[#667eea] to-[#764ba2] bg-clip-text text-transparent font-[700] flex items-center justify-center'>Skills & Technologies</h2>
-      <p className='text-white/70 text-[1rem] md:text-[1.2rem] text-center mb-[40px]'>A comprehensive overview of the technologies and tools I work with.</p>
+    <section className='min-h-screen py-[70px] pt-[100px] px-[15px] md:px-[20px] relative overflow-hidden' id='skill'>
+      <div className='max-w-[1200px] mx-auto relative z-[1]'>
+        
+        <header className='text-center mb-[50px]'>
+          <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase font-mono tracking-widest text-purple-300 mb-3'>
+            ⚡ Technical Stack
+          </div>
+          <h2 className='text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] font-[800] mb-[15px] tracking-[-1px] leading-[1.1] text-white'>
+            Skills & <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#667eea] via-[#a88beb] to-[#ff0844]'>Technologies</span>
+          </h2>
+          <p className='text-[1rem] md:text-[1.15rem] text-white/70 max-w-[650px] mx-auto leading-[1.6]'>
+            Curated developer competencies spanning cloud infrastructure, full-stack systems, and backend automation.
+          </p>
+        </header>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-[20px] md:gap-[30px] max-w-[1200px] mx-auto'>
-        {/* Languages Section */}
-        <div className='bg-white/10 rounded-[20px] p-[20px] md:p-[25px] backdrop-blur-[10px] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]'>
-          <h3 className='text-white text-[1.3rem] lg:text-[1.5rem] mb-[20px] text-center font-[600] border-b-[2px] border-white/30 pb-[10px]'>Languages</h3>
-          <div className='grid grid-cols-2 gap-[10px] md:gap-[15px]'>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/java.png" alt="Java" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>Java</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/py.jpeg" alt="Python" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>Python</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/sql.jpg" alt="MySQL" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>MySQL</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/c-programming.png" alt="TailwindCSS" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>C</span>
-            </div>
+        {/* Filter and Search Bar */}
+        <div className='flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 bg-white/[0.03] p-3 rounded-2xl border border-white/10 backdrop-blur-xl'>
+          
+          {/* Category Tabs */}
+          <div className='flex flex-wrap gap-2 w-full sm:w-auto'>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => handleCategoryChange(cat)}
+                className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all ${
+                  activeCategory === cat
+                    ? 'bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white shadow-lg shadow-[#667eea]/30'
+                    : 'bg-white/5 text-white/60 hover:text-white hover:bg-white/10 border border-white/5'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Search Box */}
+          <div className='relative w-full sm:w-64'>
+            <SearchIcon className='absolute left-3 top-1/2 -translate-y-1/2 text-white/40 text-sm' />
+            <input
+              type='text'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder='Search tech / tools...'
+              className='w-full bg-black/40 border border-white/10 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#667eea]'
+            />
           </div>
         </div>
 
-        {/* Frameworks Section */}
-        <div className='bg-white/10 rounded-[20px] p-[20px] md:p-[25px] backdrop-blur-[10px] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]'>
-          <h3 className='text-white text-[1.3rem] lg:text-[1.5rem] mb-[20px] text-center font-[600] border-b-[2px] border-white/30 pb-[10px]'>Frameworks</h3>
-          <div className='grid grid-cols-2 gap-[10px] md:gap-[15px]'>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/react.png" alt="React" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>React</span>
+        {/* Skills Grid */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
+          {filteredSkills.map((skill, index) => (
+            <div
+              key={index}
+              onMouseEnter={() => sound.playHover()}
+              className='bg-white/[0.04] border border-white/10 rounded-2xl p-4 backdrop-blur-md hover:bg-white/[0.08] hover:border-cyan-400/40 hover:-translate-y-1 transition-all duration-300 group shadow-lg flex flex-col justify-between'
+            >
+              <div className='flex items-center gap-3.5 mb-3'>
+                <div className='w-12 h-12 rounded-xl bg-white p-2 flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform'>
+                  <img src={skill.icon} alt={skill.name} className='w-full h-full object-contain' />
+                </div>
+                <div>
+                  <h3 className='font-bold text-white text-base'>{skill.name}</h3>
+                  <span className='text-[10px] font-mono text-cyan-300 uppercase tracking-wider bg-cyan-950/50 px-2 py-0.5 rounded-full border border-cyan-500/20'>
+                    {skill.category}
+                  </span>
+                </div>
+              </div>
+
+              <p className='text-xs text-white/60 leading-relaxed mb-3'>{skill.desc}</p>
+
+              {/* Proficiency Gauge */}
+              <div>
+                <div className='flex justify-between text-[11px] font-mono text-white/60 mb-1'>
+                  <span>Proficiency</span>
+                  <span className='text-white font-bold'>{skill.level}%</span>
+                </div>
+                <div className='w-full h-1.5 bg-black/50 rounded-full overflow-hidden'>
+                  <div
+                    className='h-full bg-gradient-to-r from-[#667eea] to-[#00f2fe] rounded-full transition-all duration-700'
+                    style={{ width: `${skill.level}%` }}
+                  ></div>
+                </div>
+              </div>
             </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/node.png" alt="Node.js" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>Node.js</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/express.jpg" alt="Express" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>Express</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/mongodb.png" alt="MongoDB" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>MongoDB</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/flask.svg" alt="Flask" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>Flask</span>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Tools Section */}
-        <div className='bg-white/10 rounded-[20px] p-[20px] md:p-[25px] backdrop-blur-[10px] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]'>
-          <h3 className='text-white text-[1.3rem] lg:text-[1.5rem] mb-[20px] text-center font-[600] border-b-[2px] border-white/30 pb-[10px]'>Tools</h3>
-          <div className='grid grid-cols-2 gap-[10px] md:gap-[15px]'>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/git.png" alt="Git" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>Git</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/github.png" alt="Figma" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>Github</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/jenkins.jpg" alt="Postman" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>Jenkins</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/docker.png" alt="Docker" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>Docker</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/githubactions.png" alt="Visual Studio" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>GitHub Actions</span>
-            </div>
-            <div className='flex flex-col items-center text-center transition-all duration-300 p-[10px] md:p-[15px] rounded-[15px] bg-white/5 border border-white/10 hover:-translate-y-[5px] hover:bg-white/15 hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] group'>
-              <img src="./images/aws.jpg" alt="AWS" className='w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-[10px] mb-[10px] object-cover bg-white p-[8px] transition-transform duration-300 ease-in-out group-hover:scale-110' />
-              <span className='text-white text-[12px] md:text-[14px] font-[500] drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]'>AWS</span>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
 export default Skills;
