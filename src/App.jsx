@@ -268,17 +268,17 @@ function MainPortfolioContent() {
                 onClick={(e) => handleNavClick(e, 'projects')}
                 className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#667eea] via-[#764ba2] to-[#00f2fe] text-white font-bold text-sm shadow-[0_0_30px_rgba(102,126,234,0.4)] hover:shadow-[0_0_45px_rgba(102,126,234,0.7)] hover:-translate-y-0.5 active:scale-95 transition-all no-underline text-center"
               >
-                ⚡ Explore Projects
+                Explore Projects
               </a>
-              <a
+              {/* <a
                 href="./images/Rithikeswaran M Resume.pdf"
                 download="Rithikeswaran M Resume.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-black/50 border border-cyan-400/40 text-cyan-300 font-mono font-bold text-sm flex items-center justify-center gap-2 hover:bg-cyan-500/10 hover:border-cyan-400 hover:-translate-y-0.5 active:scale-95 transition-all shadow-md no-underline text-center"
               >
-                📄 Resume (CV)
-              </a>
+                Resume (CV)
+              </a> */}
             </div>
 
             {/* Social Channels */}
