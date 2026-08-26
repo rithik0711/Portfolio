@@ -39,11 +39,9 @@ export const Projects = () => {
   return (
     <section className='min-h-screen py-[70px] pt-[100px] px-[15px] md:px-[20px] relative overflow-hidden' id='projects'>
       <div className='max-w-[1200px] mx-auto relative z-[1]'>
-        
+
         <header className='text-center mb-[60px]'>
-          <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase font-mono tracking-widest text-cyan-300 mb-3'>
-            ⚡ Featured Applications
-          </div>
+
           <h2 className='text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] font-[800] mb-[15px] tracking-[-1px] leading-[1.1] text-white'>
             Featured <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#00f2fe] via-[#4facfe] to-[#764ba2]'>Projects</span>
           </h2>

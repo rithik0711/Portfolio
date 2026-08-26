@@ -47,11 +47,8 @@ export const Technical = () => {
   return (
     <section className='py-[70px] pt-[100px] px-[15px] md:px-[20px] relative overflow-hidden' id='technical'>
       <div className='max-w-[1200px] mx-auto relative z-[1]'>
-        
+
         <header className='text-center mb-[50px]'>
-          <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase font-mono tracking-widest text-emerald-300 mb-3'>
-            ☁️ Cloud & DevOps
-          </div>
           <h2 className='text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] font-[800] mb-[15px] tracking-[-1px] leading-[1.1] text-white'>
             Technical <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#45d19b] via-[#00f2fe] to-[#4facfe]'>Architecture</span>
           </h2>

@@ -10,6 +10,7 @@ import Technical from './Technical';
 import Projects from './Projects';
 import Education from './Education';
 import Certification from './Certification';
+import Achievements from './Achievements';
 import Contact from './Contact';
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -65,7 +66,7 @@ function MainPortfolioContent() {
 
   // Intersection observer for active navigation section
   useEffect(() => {
-    const sections = ['home', 'skill', 'technical', 'projects', 'education', 'certification', 'contact'];
+    const sections = ['home', 'skill', 'technical', 'projects', 'education', 'certification', 'achievements', 'contact'];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -139,6 +140,7 @@ function MainPortfolioContent() {
             { id: 'projects', label: 'Projects' },
             { id: 'education', label: 'Education' },
             { id: 'certification', label: 'Certifications' },
+            { id: 'achievements', label: 'Achievements' },
             { id: 'contact', label: 'Contact' }
           ].map((item) => (
             <a
@@ -218,6 +220,7 @@ function MainPortfolioContent() {
             { id: 'projects', label: 'Featured Projects' },
             { id: 'education', label: 'Academic Journey' },
             { id: 'certification', label: 'Certifications' },
+            { id: 'achievements', label: 'Achievements' },
             { id: 'contact', label: 'Contact Me' }
           ].map((item) => (
             <a
@@ -307,21 +310,34 @@ function MainPortfolioContent() {
             </div>
           </div>
 
-          {/* Right Column: Hero Visual Photo */}
-          <div className="relative w-[260px] xs:w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-[4/5] sm:aspect-square mx-auto group shrink-0">
+          {/* Right Column: Hero Visual Photo (Cybernetic HUD Framing) */}
+          <div className="relative w-[290px] xs:w-[320px] sm:w-[360px] md:w-[410px] lg:w-[450px] aspect-[4/5] sm:aspect-square mx-auto group shrink-0 select-none">
 
-            {/* Pulsing Holographic Aura */}
-            <div className="absolute inset-[-10px] sm:inset-[-15px] bg-gradient-to-tr from-cyan-400 via-purple-600 to-pink-500 rounded-[2.5rem] sm:rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 animate-spin [animation-duration:25s]"></div>
+            {/* Glowing Ambient Halo */}
+            <div className="absolute inset-[-14px] bg-gradient-to-tr from-cyan-400 via-purple-600 to-pink-500 rounded-[2.8rem] blur-2xl opacity-40 group-hover:opacity-75 transition-opacity duration-700 pointer-events-none"></div>
 
-            {/* Image Box */}
-            <div className="relative w-full h-full bg-[#0c0e1a]/80 backdrop-blur-md rounded-[2.2rem] sm:rounded-[2.8rem] border border-white/20 p-2.5 sm:p-3.5 shadow-2xl overflow-hidden flex items-center justify-center transform transition-transform duration-500 group-hover:scale-[1.02]">
+            {/* Rotating Tech Outline Ring */}
+            <div className="absolute -inset-1 rounded-[2.4rem] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-60 group-hover:opacity-100 blur-[2px] transition duration-500 animate-gradient-x"></div>
+
+            {/* Image Main Container */}
+            <div className="relative w-full h-full bg-[#0c0e1a]/90 backdrop-blur-xl rounded-[2.2rem] border border-white/20 p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden flex items-center justify-center transition-all duration-500 group-hover:scale-[1.01] group-hover:border-cyan-400/50">
+
+              {/* Futuristic Corner Tech Accents */}
+              <div className="absolute top-3 left-3 w-3.5 h-3.5 border-t-2 border-l-2 border-cyan-400 z-20 pointer-events-none"></div>
+              <div className="absolute top-3 right-3 w-3.5 h-3.5 border-t-2 border-r-2 border-cyan-400 z-20 pointer-events-none"></div>
+              <div className="absolute bottom-3 left-3 w-3.5 h-3.5 border-b-2 border-l-2 border-pink-400 z-20 pointer-events-none"></div>
+              <div className="absolute bottom-3 right-3 w-3.5 h-3.5 border-b-2 border-r-2 border-pink-400 z-20 pointer-events-none"></div>
+
+              {/* User Photo */}
               <img
                 src="./images/my-photo.png"
                 onError={(e) => { e.currentTarget.src = "./images/my-pic.jpg"; }}
                 alt="Rithikeswaran M"
-                className="w-full h-full object-cover object-top rounded-[1.8rem] sm:rounded-[2.2rem] shadow-inner"
+                className="w-full h-full object-cover object-top rounded-[1.8rem] shadow-inner transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e1a]/80 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+
+              {/* Bottom Subtle Gradient Fade */}
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0c0e1a]/90 to-transparent pointer-events-none z-10"></div>
             </div>
 
           </div>
@@ -342,6 +358,7 @@ function MainPortfolioContent() {
       <Projects />
       <Education />
       <Certification />
+      <Achievements />
       <Contact />
 
       {/* Footer */}

@@ -10,24 +10,24 @@ export const Skills = () => {
 
   const skillsData = [
     // Languages
-    { name: "Java", category: "LANGUAGES", icon: "./images/java.png", level: 90, desc: "OOP, Multithreading, Algorithms" },
-    { name: "Python", category: "LANGUAGES", icon: "./images/py.jpeg", level: 88, desc: "Machine Learning, Flask, Scripting" },
-    { name: "MySQL", category: "LANGUAGES", icon: "./images/sql.jpg", level: 85, desc: "Relational Design, Indexing, Joins" },
-    { name: "C", category: "LANGUAGES", icon: "./images/c-programming.png", level: 80, desc: "Pointers, Data Structures, Memory" },
-    
+    { name: "Java", category: "LANGUAGES", icon: "./images/java.png", level: 85, desc: "OOP, Multithreading, Algorithms" },
+    { name: "Python", category: "LANGUAGES", icon: "./images/py.jpeg", level: 80, desc: "Machine Learning, Flask, Scripting" },
+    { name: "MySQL", category: "LANGUAGES", icon: "./images/sql.jpg", level: 75, desc: "Relational Design, Indexing, Joins" },
+    { name: "C", category: "LANGUAGES", icon: "./images/c-programming.png", level: 75, desc: "Pointers, Data Structures, Memory" },
+
     // Frameworks & Web
-    { name: "React", category: "FRAMEWORKS", icon: "./images/react.png", level: 92, desc: "Hooks, Context API, SPA Design" },
-    { name: "Node.js", category: "FRAMEWORKS", icon: "./images/node.png", level: 86, desc: "Async APIs, Microservices, REST" },
-    { name: "Express", category: "FRAMEWORKS", icon: "./images/express.jpg", level: 85, desc: "Routing, Middlewares, Auth" },
-    { name: "MongoDB", category: "FRAMEWORKS", icon: "./images/mongodb.png", level: 82, desc: "NoSQL, Aggregation, Schemas" },
-    { name: "Flask", category: "FRAMEWORKS", icon: "./images/flask.svg", level: 80, desc: "Python APIs, Ollama Integration" },
+    { name: "React", category: "FRAMEWORKS", icon: "./images/react.png", level: 85, desc: "Hooks, Context API, SPA Design" },
+    { name: "Node.js", category: "FRAMEWORKS", icon: "./images/node.png", level: 80, desc: "Async APIs, Microservices, REST" },
+    { name: "Express", category: "FRAMEWORKS", icon: "./images/express.jpg", level: 78, desc: "Routing, Middlewares, Auth" },
+    { name: "MongoDB", category: "FRAMEWORKS", icon: "./images/mongodb.png", level: 70, desc: "NoSQL, Aggregation, Schemas" },
+    { name: "Flask", category: "FRAMEWORKS", icon: "./images/flask.svg", level: 65, desc: "Python APIs, Ollama Integration" },
 
     // Cloud & DevOps
-    { name: "AWS", category: "CLOUD & DEVOPS", icon: "./images/aws.jpg", level: 88, desc: "EC2, S3, RDS, VPC, ALB, IAM" },
-    { name: "Docker", category: "CLOUD & DEVOPS", icon: "./images/docker.png", level: 85, desc: "Multi-stage builds, Compose" },
-    { name: "Jenkins", category: "CLOUD & DEVOPS", icon: "./images/jenkins.jpg", level: 82, desc: "CI/CD Pipelines, EC2 Automated Build" },
-    { name: "GitHub Actions", category: "CLOUD & DEVOPS", icon: "./images/githubactions.png", level: 84, desc: "Workflow CI automation, CD" },
-    { name: "Git", category: "CLOUD & DEVOPS", icon: "./images/git.png", level: 90, desc: "Branching, PRs, GitFlow" }
+    { name: "AWS", category: "CLOUD & DEVOPS", icon: "./images/aws.jpg", level: 80, desc: "EC2, S3, RDS, VPC, ALB, IAM" },
+    { name: "Docker", category: "CLOUD & DEVOPS", icon: "./images/docker.png", level: 70, desc: "Multi-stage builds, Compose" },
+    { name: "Jenkins", category: "CLOUD & DEVOPS", icon: "./images/jenkins.jpg", level: 70, desc: "CI/CD Pipelines, EC2 Automated Build" },
+    { name: "GitHub Actions", category: "CLOUD & DEVOPS", icon: "./images/githubactions.png", level: 60, desc: "Workflow CI automation, CD" },
+    { name: "Git", category: "CLOUD & DEVOPS", icon: "./images/git.png", level: 85, desc: "Branching, PRs, GitFlow" }
   ];
 
   const categories = ['ALL', 'LANGUAGES', 'FRAMEWORKS', 'CLOUD & DEVOPS'];
@@ -35,7 +35,7 @@ export const Skills = () => {
   const filteredSkills = skillsData.filter((skill) => {
     const matchesCategory = activeCategory === 'ALL' || skill.category === activeCategory;
     const matchesSearch = skill.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          skill.desc.toLowerCase().includes(searchTerm.toLowerCase());
+      skill.desc.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -48,11 +48,8 @@ export const Skills = () => {
   return (
     <section className='min-h-screen py-[70px] pt-[100px] px-[15px] md:px-[20px] relative overflow-hidden' id='skill'>
       <div className='max-w-[1200px] mx-auto relative z-[1]'>
-        
+
         <header className='text-center mb-[50px]'>
-          <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase font-mono tracking-widest text-purple-300 mb-3'>
-            ⚡ Technical Stack
-          </div>
           <h2 className='text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] font-[800] mb-[15px] tracking-[-1px] leading-[1.1] text-white'>
             Skills & <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#667eea] via-[#a88beb] to-[#ff0844]'>Technologies</span>
           </h2>
@@ -63,18 +60,17 @@ export const Skills = () => {
 
         {/* Filter and Search Bar */}
         <div className='flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 bg-white/[0.03] p-3 rounded-2xl border border-white/10 backdrop-blur-xl'>
-          
+
           {/* Category Tabs */}
           <div className='flex flex-wrap gap-2 w-full sm:w-auto'>
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => handleCategoryChange(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all ${
-                  activeCategory === cat
-                    ? 'bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white shadow-lg shadow-[#667eea]/30'
-                    : 'bg-white/5 text-white/60 hover:text-white hover:bg-white/10 border border-white/5'
-                }`}
+                className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all ${activeCategory === cat
+                  ? 'bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white shadow-lg shadow-[#667eea]/30'
+                  : 'bg-white/5 text-white/60 hover:text-white hover:bg-white/10 border border-white/5'
+                  }`}
               >
                 {cat}
               </button>

@@ -31,7 +31,7 @@ export const Certification = () => {
     {
       id: 3,
       title: "Machine Learning Fundamentals",
-      issuer: "NPTEL",
+      issuer: "NPTEL IIT Madras",
       level: "Intermediate",
       date: "2023",
       image: "/images/nptel.png",
@@ -41,7 +41,7 @@ export const Certification = () => {
     {
       id: 4,
       title: "Ethical Hacking & Forensics",
-      issuer: "NPTEL",
+      issuer: "NPTEL IIT Kharagpur",
       level: "Intermediate",
       date: "2023",
       image: "/images/Ethical Hacking.png",
@@ -60,7 +60,7 @@ export const Certification = () => {
     },
     {
       id: 6,
-      title: "Python Programming Mastery",
+      title: "Python Programming ",
       issuer: "Cisco",
       level: "Advanced",
       date: "2024",
@@ -71,7 +71,7 @@ export const Certification = () => {
     {
       id: 7,
       title: "Programming in Java",
-      issuer: "NPTEL",
+      issuer: "NPTEL IIT Kharagpur",
       level: "Intermediate",
       date: "2023",
       image: "/images/p_java.png",
@@ -127,9 +127,7 @@ export const Certification = () => {
     <section className='min-h-[85vh] py-[70px] pt-[100px] px-[15px] md:px-[20px] text-white relative overflow-hidden' id='certification'>
 
       <div className='text-center mb-[50px] relative z-20'>
-        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase font-mono tracking-widest text-blue-300 mb-3'>
-          📜 Industry Credentials
-        </div>
+
         <h2 className='text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] mb-[15px] font-[800] tracking-[-1px] text-white'>
           Professional <span className='bg-gradient-to-r from-[#00f2fe] via-[#4facfe] to-[#667eea] bg-clip-text text-transparent'>Certifications</span>
         </h2>
@@ -164,14 +162,14 @@ export const Certification = () => {
               </div>
 
               {/* Badges */}
-              <div className="flex items-center gap-2 mb-2">
+              {/* <div className="flex items-center gap-2 mb-2">
                 <span className='px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-[0.7rem] font-mono font-bold uppercase'>
                   {cert.level}
                 </span>
                 <span className='px-3 py-1 rounded-full bg-white/5 text-white/60 border border-white/10 text-[0.7rem] font-mono'>
                   {cert.date}
                 </span>
-              </div>
+              </div> */}
 
               <h4 className='text-lg md:text-xl text-white font-bold mb-1 text-center tracking-tight'>
                 {cert.title}
@@ -181,13 +179,13 @@ export const Certification = () => {
               </p>
 
               {/* Skills Tags */}
-              <div className="flex flex-wrap justify-center gap-1.5 mt-auto">
+              {/* <div className="flex flex-wrap justify-center gap-1.5 mt-auto">
                 {cert.skills.map((s, i) => (
                   <span key={i} className="text-[10px] font-mono bg-white/5 px-2 py-0.5 rounded text-white/70 border border-white/5">
                     {s}
                   </span>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         ))}

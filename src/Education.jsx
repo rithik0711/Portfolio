@@ -47,11 +47,8 @@ export const Education = () => {
   return (
     <section className="min-h-screen py-[70px] pt-[100px] px-[15px] md:px-[20px] relative overflow-hidden" id="education" ref={sectionRef}>
       <div className="max-w-[1200px] mx-auto relative z-10">
-        
+
         <div className="text-center mb-[60px]">
-          <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase font-mono tracking-widest text-amber-300 mb-3'>
-            🎓 Academic Milestone
-          </div>
           <h2 className="text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] font-[800] mb-[15px] tracking-[-1px] leading-[1.1] text-white">
             Academic <span className="bg-gradient-to-tr from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">Journey</span>
           </h2>
