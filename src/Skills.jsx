@@ -8,27 +8,30 @@ export const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const skillsData = [
-    // Languages
-    { name: "Java", category: "LANGUAGES", icon: "./images/java.png", level: 85, desc: "OOP, Multithreading, Algorithms" },
-    { name: "Python", category: "LANGUAGES", icon: "./images/py.jpeg", level: 80, desc: "Machine Learning, Flask, Scripting" },
-    { name: "MySQL", category: "LANGUAGES", icon: "./images/sql.jpg", level: 75, desc: "Relational Design, Indexing, Joins" },
-    { name: "C", category: "LANGUAGES", icon: "./images/c-programming.png", level: 75, desc: "Pointers, Data Structures, Memory" },
+const skillsData = [
+  // Languages
+  { name: "Java", category: "LANGUAGES", icon: "./images/java.png", desc: "OOP, Multithreading, Data Structures & Algorithms" },
+  { name: "Python", category: "LANGUAGES", icon: "./images/py.jpeg", desc: "Machine Learning, Backend Scripting, Automation" },
+  { name: "MySQL", category: "LANGUAGES", icon: "./images/sql.jpg", desc: "Relational Schema Design, Query Optimization, Joins" },
+  { name: "C", category: "LANGUAGES", icon: "./images/c-programming.png", desc: "Memory Management, Pointers, Core Data Structures" },
 
-    // Frameworks & Web
-    { name: "React", category: "FRAMEWORKS", icon: "./images/react.png", level: 85, desc: "Hooks, Context API, SPA Design" },
-    { name: "Node.js", category: "FRAMEWORKS", icon: "./images/node.png", level: 80, desc: "Async APIs, Microservices, REST" },
-    { name: "Express", category: "FRAMEWORKS", icon: "./images/express.jpg", level: 78, desc: "Routing, Middlewares, Auth" },
-    { name: "MongoDB", category: "FRAMEWORKS", icon: "./images/mongodb.png", level: 70, desc: "NoSQL, Aggregation, Schemas" },
-    { name: "Flask", category: "FRAMEWORKS", icon: "./images/flask.svg", level: 65, desc: "Python APIs, Ollama Integration" },
+  // Frameworks & Web
+  { name: "React", category: "FRAMEWORKS", icon: "./images/react.png", desc: "Component Architecture, Hooks, Context API, SPAs" },
+  { name: "Node.js", category: "FRAMEWORKS", icon: "./images/node.png", desc: "Event-Driven APIs, Microservices, RESTful Services" },
+  { name: "Express", category: "FRAMEWORKS", icon: "./images/express.jpg", desc: "REST Routing, Custom Middleware, JWT Authentication" },
+  { name: "MongoDB", category: "FRAMEWORKS", icon: "./images/mongodb.png", desc: "NoSQL Data Modeling, Aggregation Pipelines, Indexing" },
+  { name: "FastAPI", category: "FRAMEWORKS", icon: "./images/fastapi.png", desc: "High-Performance Async APIs, Pydantic, Ollama Integration" },
 
-    // Cloud & DevOps
-    { name: "AWS", category: "CLOUD & DEVOPS", icon: "./images/aws.jpg", level: 80, desc: "EC2, S3, RDS, VPC, ALB, IAM" },
-    { name: "Docker", category: "CLOUD & DEVOPS", icon: "./images/docker.png", level: 70, desc: "Multi-stage builds, Compose" },
-    { name: "Jenkins", category: "CLOUD & DEVOPS", icon: "./images/jenkins.jpg", level: 70, desc: "CI/CD Pipelines, EC2 Automated Build" },
-    { name: "GitHub Actions", category: "CLOUD & DEVOPS", icon: "./images/githubactions.png", level: 60, desc: "Workflow CI automation, CD" },
-    { name: "Git", category: "CLOUD & DEVOPS", icon: "./images/git.png", level: 85, desc: "Branching, PRs, GitFlow" }
-  ];
+  // Cloud & DevOps
+  { name: "AWS", category: "CLOUD & DEVOPS", icon: "./images/aws.jpg", desc: "Cloud Infrastructure (EC2, S3, RDS, VPC, ALB, IAM)" },
+  { name: "Docker", category: "CLOUD & DEVOPS", icon: "./images/docker.png", desc: "Containerization, Multi-Stage Builds, Docker Compose" },
+  { name: "Jenkins", category: "CLOUD & DEVOPS", icon: "./images/jenkins.jpg", desc: "Automated CI/CD Pipelines, Build & Deployment Triggers" },
+  { name: "GitHub Actions", category: "CLOUD & DEVOPS", icon: "./images/githubactions.png", desc: "Automated Testing, CI/CD Workflows, Deployment Pipelines" },
+  { name: "Git", category: "CLOUD & DEVOPS", icon: "./images/git.png", desc: "Distributed Version Control, Branching, GitFlow" },
+  { name: "GitHub", category: "CLOUD & DEVOPS", icon: "./images/github.png", desc: "Code Collaboration, Pull Requests, Repository Management" },
+  { name: "Ansible", category: "CLOUD & DEVOPS", icon: "./images/ansible.png", desc: "Configuration Management, Playbooks, Server Provisioning" }
+];
+
 
   const categories = ['ALL', 'LANGUAGES', 'FRAMEWORKS', 'CLOUD & DEVOPS'];
 
@@ -113,7 +116,7 @@ export const Skills = () => {
               <p className='text-xs text-white/60 leading-relaxed mb-3'>{skill.desc}</p>
 
               {/* Proficiency Gauge */}
-              <div>
+              {/* <div>
                 <div className='flex justify-between text-[11px] font-mono text-white/60 mb-1'>
                   <span>Proficiency</span>
                   <span className='text-white font-bold'>{skill.level}%</span>
@@ -124,7 +127,7 @@ export const Skills = () => {
                     style={{ width: `${skill.level}%` }}
                   ></div>
                 </div>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

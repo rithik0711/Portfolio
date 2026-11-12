@@ -330,10 +330,10 @@ function MainPortfolioContent() {
 
               {/* User Photo */}
               <img
-                src="./images/my-photo.png"
-                onError={(e) => { e.currentTarget.src = "./images/my-pic.jpg"; }}
+                src="./images/Layer2.png"
+                onError={(e) => { e.currentTarget.src = "./images/Layer1.png"; }}
                 alt="Rithikeswaran M"
-                className="w-full h-full object-cover object-top rounded-[1.8rem] shadow-inner transition-transform duration-700 group-hover:scale-105"
+                className="w-100 h-100 object-cover object-top rounded-[1.8rem] shadow-inner transition-transform duration-700 group-hover:scale-105"
               />
 
               {/* Bottom Subtle Gradient Fade */}

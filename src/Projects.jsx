@@ -1,105 +1,193 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import BiotechIcon from '@mui/icons-material/Biotech';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 export const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState('ALL');
+
   const projects = [
     {
-      id: 1,
-      title: "AI Exam Portal",
+      id: "01",
+      title: "AI Powered Exam Portal",
       description: "An intelligent examination platform enabling faculty to generate dynamic questions via LLMs and students to take exams with automated real-time grading and evaluation.",
       category: "GEN AI",
       tech: ["React", "Node.js", "Express", "MySQL", "OpenAI / LLMs"],
-      icon: <SmartToyIcon />,
+      icon: <SmartToyIcon fontSize="medium" />,
       color: "#00f2fe",
-      badge: "GenAI & Automation"
+      badge: "GenAI & Automation",
+      githubUrl: "#",
+      liveUrl: "#"
     },
     {
-      id: 2,
-      title: "Faculty Workload Prediction System",
-      description: "A machine learning predictive application designed to forecast faculty semester workloads based on student enrollments, research grants, and historical teaching metrics.",
-      category: "MACHINE LEARNING",
-      tech: ["React", "Python", "TensorFlow", "Pandas", "Scikit-Learn"],
-      icon: <BiotechIcon />,
+      id: "02",
+      title: "Modern Handloom Cluster Digital Platform",
+      description: "Built a RAG-based AI chatbot to reduce hallucinations and outdated responses by 30% through structured domain knowledge retrieval.",
+      category: "GEN AI",
+      tech: ["React", "Node.js", "RAG", "Vector DB"],
+      icon: <BiotechIcon fontSize="medium" />,
       color: "#cd4ecb",
-      badge: "ML Analytics"
+      badge: "RAG & Analytics",
+      githubUrl: "#",
+      liveUrl: "https://vastra-vvbz.onrender.com/"
     },
     {
-      id: 3,
+      id: "03",
       title: "Self-Hosted AI Chat Application",
-      description: "A private, zero-cloud dependency LLM chat client utilizing local Ollama models with a Flask REST server and real-time streaming tokens on React.",
-      category: "LOCAL GEN AI",
-      tech: ["React.js", "Flask", "Ollama", "REST APIs", "Docker"],
-      icon: <SmartToyIcon />,
+      description: "A private, zero-cloud dependency LLM chat client utilizing local Ollama models with a FastAPI/Flask REST server and real-time token streaming on React.",
+      category: "LOCAL AI",
+      tech: ["React", "FastAPI", "Ollama", "REST APIs", "Docker"],
+      icon: <TerminalIcon fontSize="medium" />,
       color: "#45d19b",
-      badge: "Local AI & Privacy"
+      badge: "Local AI & Privacy",
+      githubUrl: "#",
+      liveUrl: "#"
     }
   ];
 
+  const categories = ['ALL', 'GEN AI', 'LOCAL AI'];
+
+  const filteredProjects = activeFilter === 'ALL'
+    ? projects
+    : projects.filter((project) => project.category === activeFilter);
+
   return (
-    <section className='min-h-screen py-[70px] pt-[100px] px-[15px] md:px-[20px] relative overflow-hidden' id='projects'>
-      <div className='max-w-[1200px] mx-auto relative z-[1]'>
+    <section
+      id="projects"
+      className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+    >
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Header */}
+        <header className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-4">
+            <AutoAwesomeIcon sx={{ fontSize: 14 }} />
+            <span>Selected Works</span>
+          </div>
 
-        <header className='text-center mb-[60px]'>
-
-          <h2 className='text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] font-[800] mb-[15px] tracking-[-1px] leading-[1.1] text-white'>
-            Featured <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#00f2fe] via-[#4facfe] to-[#764ba2]'>Projects</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4">
+            Featured{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2fe] via-[#4facfe] to-[#cd4ecb]">
+              Projects
+            </span>
           </h2>
-          <p className='text-[1rem] md:text-[1.15rem] text-white/70 max-w-[650px] mx-auto leading-[1.6]'>
-            Production architectures, full-stack systems, and Generative AI applications.
+
+          <p className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Production architectures, full-stack systems, and Generative AI applications built for real-world impact.
           </p>
+
+          {/* Interactive Category Filter Pills */}
+          <div className="flex flex-wrap justify-center gap-2 mt-8">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`px-4 py-1.5 rounded-full text-xs font-mono font-semibold tracking-wider transition-all duration-300 border ${
+                  activeFilter === cat
+                    ? 'bg-cyan-400/15 text-cyan-300 border-cyan-400/50 shadow-[0_0_20px_rgba(0,242,254,0.2)]'
+                    : 'bg-white/[0.03] text-slate-400 border-white/10 hover:bg-white/[0.08] hover:text-white'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </header>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[25px] md:gap-[30px] mb-[40px]'>
-          {projects.map((project) => (
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          {filteredProjects.map((project) => (
             <article
               key={project.id}
-              className='bg-white/[0.04] rounded-[24px] p-[25px] md:p-[30px] border border-white/10 backdrop-blur-xl hover:border-cyan-400/50 hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-2 group flex flex-col relative overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.3)]'
+              className="group relative flex flex-col justify-between rounded-3xl bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/25 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)] overflow-hidden"
             >
-              {/* Dynamic Accent Glow */}
+              {/* Top Accent Line */}
               <div
-                className="absolute top-[-40px] right-[-40px] w-[140px] h-[140px] rounded-full blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none"
+                className="absolute top-0 left-0 right-0 h-[2px] opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${project.color}, transparent)`
+                }}
+              />
+
+              {/* Hover Radial Glow */}
+              <div
+                className="absolute -top-24 -right-24 w-48 h-48 rounded-full blur-[70px] opacity-15 group-hover:opacity-35 transition-opacity duration-500 pointer-events-none"
                 style={{ backgroundColor: project.color }}
               />
 
-              {/* Header: Icon & Category Badge */}
-              <div className="flex justify-between items-start mb-[20px] relative z-10">
-                <div
-                  className="w-[50px] h-[50px] rounded-2xl flex items-center justify-center bg-black/40 border border-white/15 shadow-lg group-hover:scale-110 transition-transform duration-300"
-                  style={{ color: project.color }}
-                >
-                  <span className='flex text-[26px]'>{project.icon}</span>
+              <div>
+                {/* Top Row: Icon + Action Links */}
+                <div className="flex items-center justify-between mb-6 relative z-10">
+                  <div
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center bg-black/40 border border-white/10 shadow-inner transition-transform duration-300 group-hover:scale-110"
+                    style={{ color: project.color }}
+                  >
+                    {project.icon}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="GitHub Repository"
+                      className="p-2 rounded-xl bg-white/[0.04] border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                    >
+                      <GitHubIcon sx={{ fontSize: 18 }} />
+                    </a>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Live Demo"
+                      className="p-2 rounded-xl bg-white/[0.04] border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                    >
+                      <ArrowOutwardIcon sx={{ fontSize: 18 }} />
+                    </a>
+                  </div>
                 </div>
-                <div
-                  className="px-[12px] py-[4px] rounded-full text-[0.7rem] font-mono font-bold tracking-wider uppercase border backdrop-blur-md"
-                  style={{
-                    color: project.color,
-                    backgroundColor: `${project.color}15`,
-                    borderColor: `${project.color}40`
-                  }}
-                >
-                  {project.category}
+
+                {/* Category & Index Tag */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs font-mono text-slate-500">
+                    /{project.id}
+                  </span>
+                  <span
+                    className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold tracking-wider uppercase"
+                    style={{
+                      color: project.color,
+                      backgroundColor: `${project.color}15`
+                    }}
+                  >
+                    {project.badge}
+                  </span>
                 </div>
+
+                {/* Title */}
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-cyan-200 transition-colors">
+                  {project.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                  {project.description}
+                </p>
               </div>
 
-              {/* Title & Description */}
-              <h3 className="text-[1.4rem] md:text-[1.6rem] font-[800] text-white mb-[10px] relative z-10 tracking-tight">
-                {project.title}
-              </h3>
-              <p className="text-[0.9rem] text-white/60 leading-[1.6] mb-[20px] relative z-10 flex-1">
-                {project.description}
-              </p>
-
-              {/* Tech Stack Pills */}
-              <div className="flex flex-wrap gap-[6px] relative z-10">
-                {project.tech.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className="bg-black/50 border border-white/10 text-white/80 px-[12px] py-[4px] rounded-lg text-[0.75rem] font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              {/* Footer: Divider + Tech Stack */}
+              <div className="pt-4 border-t border-white/[0.08] relative z-10">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tech.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 py-1 rounded-md text-xs font-mono text-slate-300 bg-white/[0.04] border border-white/[0.07] group-hover:border-white/15 transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </article>
           ))}
