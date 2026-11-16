@@ -17,8 +17,8 @@ export const Achievements = () => {
         {
             id: 2,
             title: "LeetCode Problem Solver",
-            subtitle: "330+ Problems Solved",
-            description: "Solved 330+ algorithmic coding problems on LeetCode with a strong emphasis on Data Structures, Algorithms, and code optimization.",
+            subtitle: "360+ Problems Solved",
+            description: "Solved algorithmic coding problems on LeetCode with a strong emphasis on Data Structures, Algorithms, and code optimization.",
             category: "PROBLEM SOLVING",
             tech: ["Data Structures", "Algorithms"],
             icon: <CodeIcon />,

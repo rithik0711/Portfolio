@@ -5,6 +5,7 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import CloudIcon from '@mui/icons-material/Cloud';
 
 export const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('ALL');
@@ -24,7 +25,7 @@ export const Projects = () => {
     },
     {
       id: "02",
-      title: "Modern Handloom Cluster Digital Platform",
+      title: "AI-Powered Handloom Marketplace with RAG-Based Virtual Assistant ",
       description: "Built a RAG-based AI chatbot to reduce hallucinations and outdated responses by 30% through structured domain knowledge retrieval.",
       category: "GEN AI",
       tech: ["React", "Node.js", "RAG", "Vector DB"],
@@ -45,10 +46,46 @@ export const Projects = () => {
       badge: "Local AI & Privacy",
       githubUrl: "#",
       liveUrl: "#"
+    },
+    {
+      id: "04",
+      title: "Infrastructure Provisioning and Configuration Automation",
+      description: "Automated AWS infrastructure provisioning using Terraform and configuration management using Ansible. Developed reusable Infrastructure as Code configurations and playbooks to automate Linux server setup, package installation, and service management.",
+      category: "CLOUD & DEVOPS",
+      tech: ["Terraform", "Ansible", "AWS", "Linux", "YAML", "IaC"],
+      icon: <CloudIcon fontSize="medium" />,
+      color: "#ff9900",
+      badge: "Cloud & DevOps",
+      githubUrl: "#",
+      liveUrl: "#"
+    },
+    {
+      id: "05",
+      title: "Automated CI/CD Pipeline for Student Management System Deployment",
+      description: "Designed and implemented an automated CI/CD pipeline using Jenkins and GitHub to streamline application builds and deployments. Containerized application services using Docker and Docker Compose, deployed them on AWS EC2, and configured Nginx as a reverse proxy for seamless application access.",
+      category: "CLOUD & DEVOPS",
+      tech: ["Jenkins", "Docker", "Docker Compose", "AWS EC2", "Nginx", "GitHub"],
+      icon: <CloudIcon fontSize="medium" />,
+      color: "#ff9900",
+      badge: "CI/CD & Cloud Deployment",
+      githubUrl: "#",
+      liveUrl: "#"
+    },
+    {
+      id: "06",
+      title: "Autonomous n8n AI Ingestion Pipeline",
+      description: "Developed an event-driven AI automation workflow using n8n to orchestrate multimedia stream ingestion, audio transcription, and multi-step LLM-based knowledge summarization through automated integrations.",
+      category: "AI AUTOMATION",
+      tech: ["n8n", "AI Agents", "LLM APIs", "Webhooks", "JSON Schema"],
+      icon: <SmartToyIcon fontSize="medium" />,
+      color: "#ff007f",
+      badge: "AI Workflow Automation",
+      githubUrl: "#",
+      liveUrl: "#"
     }
   ];
 
-  const categories = ['ALL', 'GEN AI', 'LOCAL AI'];
+  const categories = ['ALL', 'GEN AI', 'LOCAL AI', 'CLOUD & DEVOPS', 'AI AUTOMATION'];
 
   const filteredProjects = activeFilter === 'ALL'
     ? projects
@@ -62,10 +99,10 @@ export const Projects = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <header className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-4">
+          {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-4">
             <AutoAwesomeIcon sx={{ fontSize: 14 }} />
             <span>Selected Works</span>
-          </div>
+          </div> */}
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4">
             Featured{' '}

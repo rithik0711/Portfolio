@@ -8,77 +8,87 @@ export const Certification = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const certifications = [
-    {
-      id: 1,
-      title: "CCNA: Introduction to Networking",
-      issuer: "Cisco Networking Academy",
-      level: "Advanced",
-      date: "2024",
-      image: "/images/ccna.png",
-      skills: ["Computer Networking", "IP Addressing", "Subnetting", "Routing Protocols"],
-      color: "#3776AB"
-    },
-    {
-      id: 2,
-      title: "OCI Foundations Associate",
-      issuer: "Oracle Cloud Infrastructure",
-      level: "Associate",
-      date: "2024",
-      image: "/images/oracle_cloud.png",
-      skills: ["Cloud Architecture", "OCI Compute", "Storage", "Networking"],
-      color: "#F80000"
-    },
-    {
-      id: 3,
-      title: "Machine Learning Fundamentals",
-      issuer: "NPTEL IIT Madras",
-      level: "Intermediate",
-      date: "2023",
-      image: "/images/nptel.png",
-      skills: ["Supervised ML", "Neural Networks", "Python", "Data Modeling"],
-      color: "#FF6B35"
-    },
-    {
-      id: 4,
-      title: "Ethical Hacking & Forensics",
-      issuer: "NPTEL IIT Kharagpur",
-      level: "Intermediate",
-      date: "2023",
-      image: "/images/Ethical Hacking.png",
-      skills: ["Network Security", "Vulnerability Assessment", "Cyber Forensics"],
-      color: "#22b455"
-    },
-    {
-      id: 5,
-      title: "Introduction to Artificial Intelligence",
-      issuer: "Google / Coursera",
-      level: "Foundational",
-      date: "2024",
-      image: "/images/Introduction to AI.png",
-      skills: ["GenAI", "LLMs", "Prompt Engineering", "AI Ethics"],
-      color: "#4285F4"
-    },
-    {
-      id: 6,
-      title: "Python Programming ",
-      issuer: "Cisco",
-      level: "Advanced",
-      date: "2024",
-      image: "/images/python.png",
-      skills: ["Python OOP", "Data Structures", "Algorithms", "Packages"],
-      color: "#3776AB"
-    },
-    {
-      id: 7,
-      title: "Programming in Java",
-      issuer: "NPTEL IIT Kharagpur",
-      level: "Intermediate",
-      date: "2023",
-      image: "/images/p_java.png",
-      skills: ["Java OOP", "Collections", "Multithreading", "JVM"],
-      color: "#22b455"
-    }
-  ];
+  {
+    id: 1,
+    title: "CCNA: Introduction to Networking",
+    issuer: "Cisco Networking Academy",
+    level: "Advanced",
+    date: "2024",
+    image: "/images/ccna.png",
+    skills: ["Computer Networking", "IP Addressing", "Subnetting", "Routing Protocols"],
+    color: "#3776AB"
+  },
+  {
+    id: 2,
+    title: "Azure Administrator Associate",
+    issuer: "Microsoft Azure",
+    level: "Associate",
+    date: "2024",
+    image: "/images/az-104.png",
+    skills: ["Azure Virtual Machines", "Azure Networking", "Storage", "Identity & Access Management"],
+    color: "#0078D4"
+  },
+  {
+    id: 3,
+    title: "OCI Foundations Associate",
+    issuer: "Oracle Cloud Infrastructure",
+    level: "Associate",
+    date: "2024",
+    image: "/images/oracle_cloud.png",
+    skills: ["Cloud Architecture", "OCI Compute", "Storage", "Networking"],
+    color: "#F80000"
+  },
+  {
+    id: 4,
+    title: "Machine Learning Fundamentals",
+    issuer: "NPTEL IIT Madras",
+    level: "Intermediate",
+    date: "2023",
+    image: "/images/nptel.png",
+    skills: ["Supervised ML", "Neural Networks", "Python", "Data Modeling"],
+    color: "#FF6B35"
+  },
+  {
+    id: 5,
+    title: "Ethical Hacking & Forensics",
+    issuer: "NPTEL IIT Kharagpur",
+    level: "Intermediate",
+    date: "2023",
+    image: "/images/Ethical Hacking.png",
+    skills: ["Network Security", "Vulnerability Assessment", "Cyber Forensics"],
+    color: "#22b455"
+  },
+  {
+    id: 6,
+    title: "Introduction to Artificial Intelligence",
+    issuer: "Google / Coursera",
+    level: "Foundational",
+    date: "2024",
+    image: "/images/Introduction to AI.png",
+    skills: ["GenAI", "LLMs", "Prompt Engineering", "AI Ethics"],
+    color: "#4285F4"
+  },
+  {
+    id: 7,
+    title: "Python Programming",
+    issuer: "Cisco",
+    level: "Advanced",
+    date: "2024",
+    image: "/images/python.png",
+    skills: ["Python OOP", "Data Structures", "Algorithms", "Packages"],
+    color: "#3776AB"
+  },
+  {
+    id: 8,
+    title: "Programming in Java",
+    issuer: "NPTEL IIT Kharagpur",
+    level: "Intermediate",
+    date: "2023",
+    image: "/images/p_java.png",
+    skills: ["Java OOP", "Collections", "Multithreading", "JVM"],
+    color: "#22b455"
+  }
+];
 
   // Auto-scroll carousel
   useEffect(() => {

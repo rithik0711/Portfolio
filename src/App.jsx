@@ -6,7 +6,7 @@ import CyberCursor from './components/CyberCursor';
 
 // import About from './About';
 import Skills from './Skills';
-import Technical from './Technical';
+// import Technical from './Technical';
 import Projects from './Projects';
 import Education from './Education';
 import Certification from './Certification';
@@ -38,7 +38,7 @@ function MainPortfolioContent() {
 
   const openLinkedin = () => {
     sound.playClick();
-    window.open('https://www.linkedin.com/in/rithikeswaran-m-27287328b/', '_blank');
+    window.open('https://www.linkedin.com/in/rithikeswaran-m/', '_blank');
   };
   const openGithub = () => {
     sound.playClick();
@@ -66,7 +66,7 @@ function MainPortfolioContent() {
 
   // Intersection observer for active navigation section
   useEffect(() => {
-    const sections = ['home', 'skill', 'technical', 'projects', 'education', 'certification', 'achievements', 'contact'];
+    const sections = ['home', 'skill', 'projects', 'education', 'certification', 'achievements', 'contact'];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -136,7 +136,7 @@ function MainPortfolioContent() {
             { id: 'home', label: 'Home' },
             // { id: 'about', label: 'About' },
             { id: 'skill', label: 'Skills' },
-            { id: 'technical', label: 'Technical' },
+            // { id: 'technical', label: 'Technical' },
             { id: 'projects', label: 'Projects' },
             { id: 'education', label: 'Education' },
             { id: 'certification', label: 'Certifications' },
@@ -216,7 +216,7 @@ function MainPortfolioContent() {
             { id: 'home', label: 'Home' },
             // { id: 'about', label: 'About' },
             { id: 'skill', label: 'Skills & Tech' },
-            { id: 'technical', label: 'Technical Implementations' },
+            // { id: 'technical', label: 'Technical Implementations' },
             { id: 'projects', label: 'Featured Projects' },
             { id: 'education', label: 'Academic Journey' },
             { id: 'certification', label: 'Certifications' },
@@ -258,7 +258,7 @@ function MainPortfolioContent() {
             </h1>
 
             <h2 className={`text-lg xs:text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-white/90 transition-all duration-700 delay-100 ${isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Cloud Engineer & <span className="bg-gradient-to-r from-[#ffd700] to-[#ffa500] bg-clip-text text-transparent">DevOps Specialist</span>
+              <span className="bg-gradient-to-r from-[#ffd700] to-[#ffa500] bg-clip-text text-transparent">Cloud Engineer</span>
             </h2>
 
             <p className={`text-sm sm:text-base md:text-lg text-white/70 max-w-[560px] mx-auto lg:mx-0 leading-relaxed mb-6 sm:mb-8 transition-all duration-700 delay-200 ${isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -354,7 +354,7 @@ function MainPortfolioContent() {
       {/* Sections */}
       {/* <About /> */}
       <Skills />
-      <Technical />
+      {/* <Technical /> */}
       <Projects />
       <Education />
       <Certification />
